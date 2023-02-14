@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Orders List{% endblock %}
+
+{% block body %}
+    <div class="row my-5">
+        <div class="col-md-10 mx-auto">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{message}}
+                </div>
+            {% endfor %}
+            <div class="card">
+                <div class="card-header">
+                    Orders List
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                                <tr>
+                                    <td>{{loop.index}}</td>
+                                    <td>{{order.user.username}}</td>
+                                    <td>{{order.pname}}</td>
+                                    <td>{{order.price}}</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                {{order.status}}
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                <li><a class="dropdown-item" 
+                                                href="{{path('order_status_update',{order: order.id,status: 'shipped'})}}">Shipped</a></li>
+                                                <li><a class="dropdown-item" href="{{path('order_status_update',{order: order.id,status: 'rejected'})}}">Rejected</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <form id="{{order.id}}" action="{{path('order_delete',{order: order.id})}}"
+                                            method="post"></form>
+                                        <button onclick="deleteItem('{{order.id}}')" class="btn btn-sm btn-danger">
+                                            delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

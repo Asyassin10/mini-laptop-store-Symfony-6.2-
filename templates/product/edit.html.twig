@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {% endblock %}
+
+{% block body %}
+
+    <div class="row my-4 ">
+        <div class="col-md-8 mx-auto ">
+            <div class="card">
+                <div class="card-header">
+                    Edit produit
+                </div>
+                <div class="card-body">
+                     {{form(form)}} 
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

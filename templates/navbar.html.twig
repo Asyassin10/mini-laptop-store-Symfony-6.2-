@@ -1,0 +1,44 @@
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{path('home')}}">SYM LAPTOP STORE</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{path('home')}}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{path('user_order_list')}}">Orders</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Account
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% if not app.user %}
+                                <li><a class="dropdown-item" href="{{path('app_register')}}">Sign up</a></li>
+                                <li><a class="dropdown-item" href="{{path('app_login')}}">Sign in</a></li>
+                            {% else %}
+                                <li><a class="dropdown-item" href="#">{{app.user.username}}</a></li>
+                                <li><a class="dropdown-item" href="{{path('app_logout')}}">Logout</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Admin
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{path('product_list')}}">Products</a></li>
+                                <li><a class="dropdown-item" href="{{path('product_store')}}">Create product</a></li>
+                                <li><a class="dropdown-item" href="{{path('orders_list')}}">Orders</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
+                </ul>
+                </div>
+            </div>
+        </nav>
