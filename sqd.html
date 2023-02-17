@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello </title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+                            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLAS
+jC" crossorigin="anonymous">
+        
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="an
+onymous"></script>
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+                function deleteItem(id){
+                    Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                           document.getElementById(id).submit();
+                        }
+                    });
+                }
+            </script>
+            </head>
+    <body>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">SYM LAPTOP STORE</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle na
+vigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/orders">Orders</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Account
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                            <li><a class="dropdown-item" href="/register">Sign up</a></li>
+                                <li><a class="dropdown-item" href="/login">Sign in</a></li>
+                                                    </ul>
+                    </li>
+                                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            
+    <div class="row my-4 ">
+        <div class="col-md-8 mx-auto ">
+            <div class="card">
+                <div class="card-header">
+                    Créer un nouveau produit
+                </div>
+                <div class="card-body">
+                     <form name="product" method="post" enctype="multipart/form-data"><div id="product"><div class="mb-3"><label for="product_name" class="form-label">Name</label><input type="text" id="product_
+name" name="product[name]" maxlength="255" class="form-control" value="Test Product" />        </div><div class="mb-3"><label for="product_description" class="form-label">Description</label><textarea id="produc
+t_description" name="product[description]" class="form-control">This is a test product</textarea>        </div><div class="mb-3"><label for="product_price" class="form-label">Price</label><input type="number"
+           id="product_price" name="product[price]" class="form-control is-invalid" value="19.99" />        <div class="invalid-feedback d-block">Please enter an integer.</div></div><div class="mb-3"><label for
+="product_quantity" class="form-label">Quantity</label><input type="number" id="product_quantity" name="product[quantity]" class="form-control" />        </div><div class="mb-3"><label for="product_image" class
+="form-label">Image</label><input type="file" id="product_image" name="product[image]" class="form-control" />        </div><div class="mb-3"><label class="form-label required" for="product_category">Category</
+label><select id="product_category" name="product[category]" class="form-select"><option value="1" selected="selected">hp</option><option value="2">asus</option><option value="3">lenovo</option><option value="4
+">dell</option></select>        </div><div class="mb-3"><button type="submit" id="product_Submit" name="product[Submit]" class="btn-primary btn">Submit</button></div><input type="hidden" id="product__token" nam
+e="product[_token]" value="d.AFt77dIfedGqBw2_VQ488R-3zKRm_mFfnBtxDReNbLY.VAMpj5t5IOPiWFfmPWtJoXjO-tEAyS0d9UQZOnPUGuJSGiSVs3oApodjQA" /></div></form> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </body>
+</html>

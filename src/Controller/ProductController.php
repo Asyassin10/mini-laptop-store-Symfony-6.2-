@@ -48,12 +48,12 @@ class ProductController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             $product = $form->getData();
-            if($request->files->get('product')['image']){
+              if($request->files->get('product')['image']){
                 $image = $request->files->get('product')['image'];
                 $image_name = time().'_'.$image->getClientOriginalName();
-                $image->move($this->getParameter('image_directory'),$image_name);
+                $image->move($this->getParameter('target_directory'),$image_name);
                 $product->setImage($image_name);
-            }
+            }  
             // tell Doctrine you want to (eventually) save the Product (no queries yet)
             $this->entityManager->persist($product);
 
@@ -66,7 +66,7 @@ class ProductController extends AbstractController
             return $this->redirectToRoute('product_list');
         }
 
-        return $this->renderForm('product/create.html.twig', [
+        return $this->render('product/create.html.twig', [
             'form' => $form
         ]);
     }
@@ -76,7 +76,6 @@ class ProductController extends AbstractController
     {
         return $this->render('product/show.html.twig', [
             'product' => $product,
-            'photo_url' => 'http://127.0.0.1:8000/uploads/'
         ]);
     }
 
@@ -92,7 +91,7 @@ class ProductController extends AbstractController
             if($request->files->get('product')['image']){
                 $image = $request->files->get('product')['image'];
                 $image_name = time().'_'.$image->getClientOriginalName();
-                $image->move($this->getParameter('image_directory'),$image_name);
+                $image->move($this->getParameter('target_directory'),$image_name);
                 $product->setImage($image_name);
             }
             // tell Doctrine you want to (eventually) save the Product (no queries yet)
@@ -107,7 +106,7 @@ class ProductController extends AbstractController
             return $this->redirectToRoute('product_list');
         }
 
-        return $this->renderForm('product/edit.html.twig', [
+        return $this->render('product/edit.html.twig', [
             'form' => $form
         ]);       
     }

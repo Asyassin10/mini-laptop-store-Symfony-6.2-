@@ -22,3 +22,10 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    #App\Repository\ProductRepository:
+    #    public: true
+    #App\Repository\CategoryRepository:
+    #    public: true
+    #doctrine:
+    #    alias: 'Doctrine\Persistence\ManagerRegistry'
+    #    public: true 

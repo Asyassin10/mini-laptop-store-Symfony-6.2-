@@ -51,7 +51,6 @@ class OrderController extends AbstractController
         if(!$this->getUser()){
             return $this->redirectToRoute('app_login');
         }
-
         $orderExists = $this->orderRepository->findOneBy([
             'user' => $this->getUser(),
             'pname' => $product->getName()
@@ -112,4 +111,6 @@ class OrderController extends AbstractController
         );
         return $this->redirectToRoute('orders_list');
     }
+
+    
 }

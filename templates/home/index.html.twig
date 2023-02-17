@@ -21,9 +21,9 @@
             <div>
                 <a href="{{path('home')}}" class="btn btn-sm btn-outline-dark mx-1">
                     All
-                </a>
+                </a> 
                 {% for category in categories %}
-                    <a href="{{path('product_category',{category: category.id})}}" class="btn btn-sm btn-outline-dark mx-1">
+                    <a href="{{path('product_category',{category: category.id})}}" class="btn btn-sm btn-outline-dark mx-1 category_name">
                         {{category.name}}
                     </a>
                 {% endfor %}
@@ -55,11 +55,12 @@
                     </div>
                 {% endfor %}
             {% else %}
-                <div class="alert alert-info">
+                <div class="alert alert-info not_found">
                     No products found!
                 </div>
             {% endif %}
         </div>
     </div>
 </div>
+
 {% endblock %}
