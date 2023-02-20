@@ -1,0 +1,40 @@
+home: Home
+
+#navbar 
+orders: Orders
+account: Account
+sign up: Sign up
+sign in: Sign in
+logout: Logout
+products: Products
+create product: Create product
+
+#home page 
+all: All
+no products found: No products found
+
+#oders pages
+orders list: Orders list
+id: ID
+username: Username
+product Name: Product Name
+price: Price
+status: Statuts
+action: Action
+shipped: Shipped
+rejected: Rejected
+delete: Delete
+total: Total
+
+#products pages
+edit produit:  Edit produit
+list of products: List of products
+add: Add
+name: Name
+category: Category
+quantity: Quantity
+image: Edit
+edit: Modifier
+detail: Detail
+order now: Order now
+select language: Select language

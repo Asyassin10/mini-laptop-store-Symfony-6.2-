@@ -9,7 +9,7 @@
     <div class="col-md-12">
         <div class="my-3 d-flex justify-content-start align-items-center">
             <a href="{{path('order_store',{product: product.id})}} " class="btn btn-sm btn-outline-dark mx-1">
-                Order now
+                {{ 'order now' |trans }}
             </a>
         </div>
         <div class="row">
@@ -43,7 +43,7 @@
                 </div>
             {% else %}
                 <div class="alert alert-info">
-                    No product found!
+                    {{ 'no products found' |trans}}
                 </div>
             {% endif %}
         </div>

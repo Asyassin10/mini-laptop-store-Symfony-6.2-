@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Orders List{% endblock %}
+{% block title %}{{ 'orders list' |trans}} {% endblock %}
 
 {% block body %}
     <div class="row my-5">
@@ -12,18 +12,18 @@
             {% endfor %}
             <div class="card">
                 <div class="card-header order_list">
-                    Orders List
+                    {{ 'orders list' |trans}}
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered table-hover order">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Username</th>
-                                <th>Product Name</th>
-                                <th>Price</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th>{{ 'id' |trans}}</th>
+                                <th>{{ 'username' |trans}}</th>
+                                <th>{{ 'product Name' |trans}}</th>
+                                <th>{{ 'price' |trans}}</th>
+                                <th>{{ 'status' |trans}}</th>
+                                <th>{{ 'action' |trans}}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,8 +40,8 @@
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                                 <li><a class="dropdown-item" 
-                                                href="{{path('order_status_update',{order: order.id,status: 'shipped'})}}">Shipped</a></li>
-                                                <li><a class="dropdown-item" href="{{path('order_status_update',{order: order.id,status: 'rejected'})}}">Rejected</a></li>
+                                                href="{{path('order_status_update',{order: order.id,status: 'shipped'})}}">{{ 'shipped' |trans}}</a></li>
+                                                <li><a class="dropdown-item" href="{{path('order_status_update',{order: order.id,status: 'rejected'})}}">{{ 'rejected' |trans}}</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -49,7 +49,7 @@
                                         <form id="{{order.id}}" action="{{path('order_delete',{order: order.id})}}"
                                             method="post"></form>
                                         <button onclick="deleteItem('{{order.id}}')" class="btn btn-sm btn-danger">
-                                            delete
+                                            {{ 'delete' |trans}}
                                         </button>
                                     </td>
                                 </tr>

@@ -1,3 +1,9 @@
+        
+        <style>
+        select {
+            border: hidden;
+}
+        </style>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{path('home')}}">SYM LAPTOP STORE</a>
@@ -7,24 +13,25 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{path('home')}}">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{{path('home')}}">{{ 'home'| trans }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{path('user_order_list')}}">Orders</a>
+                        <a class="nav-link" href="{{path('user_order_list')}}">{{ 'orders'| trans }}</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Account
+                            {{ 'account'| trans }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             {% if not app.user %}
-                                <li><a class="dropdown-item" href="{{path('app_register')}}">Sign up</a></li>
-                                <li><a class="dropdown-item" href="{{path('app_login')}}">Sign in</a></li>
+                                <li><a class="dropdown-item" href="{{path('app_register')}}">{{ 'sign up'| trans }}</a></li>
+                                <li><a class="dropdown-item" href="{{path('app_login')}}">{{ 'sign in'| trans }}</a></li>
                             {% else %}
                                 <li><a class="dropdown-item" href="#">{{app.user.username}}</a></li>
-                                <li><a class="dropdown-item" href="{{path('app_logout')}}">Logout</a></li>
+                                <li><a class="dropdown-item" href="{{path('app_logout')}}">{{ 'logout'| trans }}</a></li>
                             {% endif %}
                         </ul>
+
                     </li>
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="nav-item dropdown">
@@ -32,13 +39,18 @@
                                 Admin
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{{path('product_list')}}">Products</a></li>
-                                <li><a class="dropdown-item" href="{{path('product_store')}}">Create product</a></li>
-                                <li><a class="dropdown-item" href="{{path('orders_list')}}">Orders</a></li>
+                                <li><a class="dropdown-item" href="{{path('product_list')}}">{{ 'products'| trans }}</a></li>
+                                <li><a class="dropdown-item" href="{{path('product_store')}}">{{ 'create product'| trans }}</a></li>
+                                <li><a class="dropdown-item" href="{{path('orders_list')}}">{{ 'orders'| trans }}</a></li>
                             </ul>
                         </li>
                     {% endif %}
                 </ul>
+                    <select name="countries" onchange="location = this.value;">
+                        <option disabled selected>{{ 'select language' |trans}}</option>
+                        <option value="{{path('home',{_locale: 'fr'})}}">🇫🇷&emsp;Frencais</option>
+                        <option value="{{path('home',{_locale: 'en'})}}">🇺🇸&emsp;English</option>
+                    </select> 
                 </div>
             </div>
         </nav>

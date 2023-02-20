@@ -24,7 +24,7 @@ class OrderController extends AbstractController
         $this->entityManager = $doctrine->getManager();
     }
        
-    #[Route('/orders', name: 'orders_list')]
+    #[Route('/{_locale}/orders', name: 'orders_list')]
 
     public function index(): Response
     {
@@ -34,7 +34,7 @@ class OrderController extends AbstractController
         ]);
     }
     
-    #[Route('/user/orders', name: 'user_order_list')]
+    #[Route('/{_locale}/user/orders', name: 'user_order_list')]
     public function userOrders(): Response
     {
         if(!$this->getUser()){
@@ -45,7 +45,7 @@ class OrderController extends AbstractController
         ]);
     }
 
-    #[Route('/store/order/{product}', name: 'order_store')]
+    #[Route('/{_locale}/store/order/{product}', name: 'order_store')]
     public function store(Product $product): Response
     {
         if(!$this->getUser()){
@@ -81,7 +81,7 @@ class OrderController extends AbstractController
         return $this->redirectToRoute('user_order_list');
     }
 
-    #[Route('/update/order/{order}/{status}', name: 'order_status_update')]
+    #[Route('/{_locale}/update/order/{order}/{status}', name: 'order_status_update')]
 
     public function updateOrderStatus(Order $order,$status): Response
     {
@@ -97,7 +97,7 @@ class OrderController extends AbstractController
         return $this->redirectToRoute('orders_list');
     }
 
-    #[Route('/update/order/{order}', name: 'order_delete')]
+    #[Route('/{_locale}/update/order/{order}', name: 'order_delete')]
 
     public function deleteOrder(Order $order): Response
     {

@@ -32,9 +32,14 @@
         {% endblock %}
     </head>
     <body>
+    {# navbar #}
     {{ include('navbar.html.twig') }}
         <div class="container">
             {% block body %}{% endblock %}
         </div>
+
+    {# footer #}
+    {{ include('footer.html.twig') }}
+
     </body>
 </html>

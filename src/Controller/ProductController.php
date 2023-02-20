@@ -38,7 +38,7 @@ class ProductController extends AbstractController
         ]);
     }
 
-    #[Route('/store/product', name: 'product_store')]
+    #[Route('/{_locale}/store/product', name: 'product_store')]
 
     public function store(Request $request): Response
     {
@@ -71,7 +71,7 @@ class ProductController extends AbstractController
         ]);
     }
 
-    #[Route('/product/details/{id}', name: 'product_show')]
+    #[Route('/{_locale}/product/details/{id}', name: 'product_show')]
     public function show(Product $product): Response
     {
         return $this->render('product/show.html.twig', [
@@ -79,7 +79,7 @@ class ProductController extends AbstractController
         ]);
     }
 
-    #[Route('/product/edit/{id}', name: 'product_edit')]
+    #[Route('/{_locale}/product/edit/{id}', name: 'product_edit')]
 
     public function editProduct(Product $product,Request $request): Response
     {
